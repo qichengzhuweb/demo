@@ -1,72 +1,214 @@
-<!DOCTYPE html>
 <html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title></title>
+<head>
+    <meta charset="utf-8"/>
+    <title>前端作品列表 - 着重于原生js的研究与探索</title><script async src="http://c.cnzz.com/core.php">
+
+    </script><script async src="http://c.cnzz.com/core.php"></script>
+    <style>
+        /*初始化代码*/
+        *{ margin:0; padding:0;}
+        body{font:14px/1.5 "Hiragino Sans GB","Hiragino Sans GB W3",'å¾®è½¯é›…é»‘';background:#fff;}
+        table{border-collapse:collapse;border-spacing:0;}
+        ul,li{list-style:none;}
+        fieldset,img{border:0;}
+        article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}
+        q:before,q:after{content:'';}
+        a:focus,input,textarea{outline-style:none;}
+        input[type="text"],input[type="password"],textarea{outline-style:none;-webkit-appearance:none;}
+        textarea{resize:none}
+        address,caption,cite,code,dfn,em,i,th,var{font-style:normal;font-weight:normal;}
+        legend{color:#000;}
+        abbr,acronym{border:0;font-variant:normal;}
+        a{color:#0a8cd2;text-decoration:none;}
+        a:hover{ color:#f60;text-decoration:underline;}
+        .clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden;}
+        .clearfix{display:inline-block;}
+        .clearfix{display:block;}
+        .clear{clear:both;height:0;font:0/0 Arial;visibility:hidden;}
+        .none{display:none}
+        .shadow{border:1px solid #e6e6e6;border-radius:5px;box-shadow:0px 2px 3px #ececec;background: #fff;}
+        .block{display:block;}
+        .minheight500{min-height:500px;height:auto !important;height:500px;overflow:visible;}
+        .wrap-box{width:960px;margin:0 auto;}
+        .blue,.blue a:link,.blue a:visited{color:blue;}
+        .blue a:hover{color:#f60;}
+        .white,.white a:link,.white a:visited{color:#fff;}
+        .white a:hover{color:#ff0;}
+        .red,.red a:link,.red a:visited{color:#f00;}
+        .red a:hover{color:#f60;}
+        .orange,.orange a:link,.orange a:visited{color:#ffa500;}
+        .orange a:hover{color:#f60;}
+        .require-red{color:#f60;font-family:serif;margin-right:3px;}
+        .tc{text-align: center;}
+        .tr{text-align: right;}
+        .btn4{width:60px;}
+        .btn5{width:80px;}
+        .btn6{width:120px;}
+        .btn7{width:130px;}
+        .btn8{width:140px;}
+        .btn9{width:160px;}
+        .btn10{width:180px;}
+        .btn50{width:50%;}
+        .btn100{width:100%;}
+        .pt10{ padding-top:10px;}
+        .mr10{ margin-right:10px;}
+        .mb10{ margin-bottom:10px;}
+        textarea,input[type="text"],input[type="password"],input[type="datetime"],input[type="datetime-local"],input[type="date"],input[type="month"],input[type="time"],input[type="week"],input[type="number"],input[type="email"],input[type="url"],input[type="search"],input[type="tel"],input[type="color"],.uneditable-input{background-color:#ffffff;border:1px solid #cccccc;-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,0.075);-moz-box-shadow:inset 0 1px 1px rgba(0,0,0,0.075);box-shadow:inset 0 1px 1px rgba(0,0,0,0.075);-webkit-transition:border linear 0.2s,box-shadow linear 0.2s;-moz-transition:border linear 0.2s,box-shadow linear 0.2s;-o-transition:border linear 0.2s,box-shadow linear 0.2s;transition:border linear 0.2s,box-shadow linear 0.2s;}
+        textarea:focus,input[type="text"]:focus,input[type="password"]:focus,input[type="datetime"]:focus,input[type="datetime-local"]:focus,input[type="date"]:focus,input[type="month"]:focus,input[type="time"]:focus,input[type="week"]:focus,input[type="number"]:focus,input[type="email"]:focus,input[type="url"]:focus,input[type="search"]:focus,input[type="tel"]:focus,input[type="color"]:focus,.uneditable-input:focus{border-color:rgba(82,168,236,0.8);outline:0;outline:thin dotted \9;/* IE6-9 */
+            -webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(82,168,236,0.6);-moz-box-shadow:inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(82,168,236,0.6);box-shadow:inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(82,168,236,0.6);}
+        textarea{ padding:5px 12px;border-radius:4px;}
+        .input{ padding:5px 6px; margin-right:10px;}
+        .demo1{ width:500px;margin: 0 auto; padding-top:100px;}
+        /* main */
+        .demo1 .popover{position:relative;display:block;float:left;width:260px;}
+        .demo1 .popover p{ margin-bottom:0;}
+        .demo1 .popover-content{ padding:4px 10px;color: #f00;}
+        .user-input .form-group{ position:relative;}
+        /*.user-input .popover{ position:absolute; left:525px;}*/
+        .user-input .popover{ position:absolute; left:435px;}
+
+
+
+
+
+
+
+
+
+        /*基本代码*/
+        .wrap{ width:500px;font-size:22px; margin:20px auto 0; padding:40px 20px;}
+        .auto{ width:500px;margin: 0 auto;}
+        .list{ padding:0 60px;}
+        .list li{list-style:decimal; line-height:50px;border-bottom: 1px solid #f2f2f2;}
+        .list li h1{font-size:22px; font-style:normal; font-family:"Hiragino Sans GB","Hiragino Sans GB W3",'å¾®è½¯é›…é»‘';}
+        .list li a{ display:block; padding:5px 8px;transition:all 0.6s;}
+        .list li a:hover{text-indent:25px; border-radius:5px;color: #fff;text-shadow:0 2px 1px #360;background-color: #393;*background-color:#51a351;background-image:-moz-linear-gradient(top,#62c462,#51a351);background-image:-webkit-gradient(linear,0 0,0 100%,from(#62c462),to(#51a351));background-image:-webkit-linear-gradient(top,#62c462,#51a351);background-image:-o-linear-gradient(top,#62c462,#51a351);background-image:linear-gradient(to bottom,#62c462,#51a351);background-repeat:repeat-x;border-color:#51a351 #51a351 #387038;border-color:rgba(0,0,0,0.1) rgba(0,0,0,0.1) rgba(0,0,0,0.25);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff62c462',endColorstr='#ff51a351',GradientType=0);filter:progid:DXImageTransform.Microsoft.gradient(enabled=false);text-decoration:none;}
+        .list li h1 a:hover{ border-radius:5px;color: #fff;text-shadow:0 2px 1px #360;background-color: #393;*background-color:#51a351;background-image:-moz-linear-gradient(top,#62c462,#51a351);background-image:-webkit-gradient(linear,0 0,0 100%,from(#62c462),to(#51a351));background-image:-webkit-linear-gradient(top,#62c462,#51a351);background-image:-o-linear-gradient(top,#62c462,#51a351);background-image:linear-gradient(to bottom,#62c462,#51a351);background-repeat:repeat-x;border-color:#51a351 #51a351 #387038;border-color:rgba(0,0,0,0.1) rgba(0,0,0,0.1) rgba(0,0,0,0.25);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff62c462',endColorstr='#ff51a351',GradientType=0);filter:progid:DXImageTransform.Microsoft.gradient(enabled=false);text-decoration:none;}
+        .sub-dl{ display:none;}
+        .sub-dl a{ margin-left:25px;}
+        .sub-dl a:hover{}
+        .welcome{ text-align:center; padding:30px 0;}
+
+
+
+    </style>
+    <link rel="stylesheet" type="text/css" href="css/reset.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="css/main.css" media="all"/>
 </head>
-<style>
-    *{margin:0;padding: 0;}
-    ul{
-        list-style-type: none;
-    }
-    .box {
-        margin: 100px auto;
-        width: 600px;
-        height: auto;
-        border:1px solid #333;
-        padding: 30px 0;
-    }
-    textarea {
-         width: 450px;
-     //resize: none;  /*防止用户拖动 右下角*/
-     }
-    .box li{
-        width: 450px;
-        line-height: 30px;
-        border-bottom: 1px dashed #cccccc;
-        margin-left: 80px;
-    }
-    .box li a {
-        float: right;
-    }
-</style>
-<script>
-    window.onload =function(){
-        var btn = document.getElementsByTagName("button")[0];
-        var txt = document.getElementsByTagName("textarea")[0];
-        var ul = document.createElement("ul");
-        txt.parentNode.appendChild(ul);
-        btn.onclick = function(){
-            if(txt.value == ""){
-                alert("请输入内容");
-                return;
-            }
-            var newli = document.createElement("li");
-            newli.innerHTML = txt.value+"<a href='javascript:';>删除<a>";
-
-            txt.value = "";
-            var lis = ul.childNodes;
-        if(lis.length == 0){
-            ul.appendChild(newli);
-        }
-            else{
-            ul.insertBefore(newli,lis[0]);
-        }
-            var as = document.getElementsByTagName("a");
-            for(var i=0;i,as.length;i++){
-                as[i].onclick = function(){
-                    ul.removeChild(this.parentNode);
-                }
-            }
-        }
-
-    }
-</script>
 <body>
-<div class="box">
-    微博发布： <textarea name="" id="" cols="30" rows="10"></textarea>  <button>发布</button>
+<div class="wrap shadow">
+    <ol id="ol" class="list">
 
-    </div>
+    </ol>
+</div>
 
+<script type="text/javascript">
+    var str = '',
+            data = [
+                [
+                    { title : '第一章 表单常用代码'},
+                    { url : 'e/1/index.html', title : '去除字符串左右的空格' },
+                    { url : 'e/2/index.html', title : '验证用户是否输入' },
+                    { url : 'e/3/index.html', title : '禁止用户输入' },
+                    { url : 'e/4/index.html', title : '关闭用户中文输入法' },
+                    { url : 'e/5/index.html', title : '禁止用户复制和粘贴' },
+                    { url : 'e/6/index.html', title : '限制只能输入数字' },
+                    { url : 'e/7/index.html', title : '限制字符串长度' },
+                    { url : 'e/8/index.html', title : '仿微博提示可输入剩余字数' },
+                    { url : 'e/9/index.html', title : '换行文本自动滚动' },
+                    { url : 'e/10/index.html', title : 'Ctrl + Return提交表单' },
+                    { url : 'e/11/index.html', title : '文本内容进行关键字过滤' },
+                    { url : 'e/12/index.html', title : '全选反选少选复选框' },
+                    { url : 'e/13/index.html', title : '动态操作下拉选项' },
+                    { url : 'e/14/index.html', title : '级联菜单' },
+                    { url : 'e/15/index.html', title : '可添加的下拉选项' }
+                ],
+                [
+                    { title : '第二章 常用图片相关代码'},
+                    { url : 'e/16/index.html', title : '可添加的下拉选项' },
+                    { url : 'e/17/index.html', title : '图片放大镜效果' },
+                    { url : 'e/18/index.html', title : '点击图片逐渐放大' }
+                ],
+                [
+                    { title : '第三章 内容展示常用代码'},
+                    { url : 'e/19/index.html', title : '单元行上鼠标悬停提示' },
+                    { url : 'c/6/index.html', title : '无刷新切换皮肤，刷新后保存' },
+                    { url : 'e/20/index.html', title : '隔行换色鼠标经过换色' },
+                    { url : 'e/21/index.html', title : '添加或删除表格行' },
+//                { url : 'e/22/index.html', title : '表格的行拖动' },
+                    { url : 'c/1/index.html', title : '可拖动的弹出层' },
+                    { url : 'c/2/index.html', title : '选项卡轮播' },
+                    { url : 'c/3/index.html', title : '模拟滚动条' },
+                    { url : 'c/4/index.html', title : '缓动的对联广告' },
+                    { url : 'c/5/index.html', title : '拖动滑块验证' }
+                ],
+                [
+                    { title : '第四章 常用图片轮换'},
+                    { url : 'slide/01/index.html', title : '百度爱玩 - 图片轮换' },
+                    { url : 'slide/02/bd02.html', title : '百度爱玩 - 遮罩下拉' },
+                    { url : 'slide/03/bd03.html', title : '百度爱玩 - 榜单tab切换' },
+                    { url : 'slide/04/index.html', title : 'css3弹出层' },
+                    { url : 'slide/05/index.html', title : '米4-活动页面' },
+                    { url : 'slide/06/index.html', title : '百度爱玩 - 图片轮换' },
+                    { url : 'slide/07/index.html', title : '百度微购－中秋送好礼' },
+                    { url : 'slide/08/index.html', title : '商品分类' },
+                    { url : 'slide/10/index.html', title : '渐显的tab菜单2' },
+                    { url : 'slide/09/index.html', title : '经典图片轮换－单个滚动' },
+                    { url : 'slide/13/index.html', title : '经典图片轮换－整个翻页' }
+                ],
+                [
+                    { title : '第五章 移动端效果'},
+                    { url : 'm/01/index.html', title : '选项卡切换' }
+                ],
+                [
+                    { title : '第六章 时间日期效果'},
+                    { url : 'd/03/index.html', title : '全日历' },
+                    { url : 'd/04/index.html', title : 'canvas实现小时钟' }
+                ],
+                [
+                    { title : '第七章 其它练习'},
+                    { url : 'other/1/index.html', title : '乘法口诀输出' }
+                ]
+            ];
+    for(var i = 0; i < data.length; i++){
+        var items = data[i];    //属性值
+        var sub = '';
+        for(var j=0; j<items.length; j++){
+            var son = items[j];         //属性值集合
+            if(j == 0){
+                sub += '<li><h1><a href="javascript:;" title="' + son.title + '">' + son.title + '</a></h1><dl class="sub-dl">';
+            } else {
+                sub += '<dd><a href="' + son.url + '" target="_blank" title="' + son.title + '">' + son.title + '</a></dd>';
+            }
+            if(j == items.length - 1){
+                sub += '</dl></li>';
+            }
+        }
+        str += sub;
+    }
+    var ol = document.getElementById('ol');
+    ol.innerHTML = str;
+    var h1 = ol.getElementsByTagName('h1');
+    var dl = ol.getElementsByTagName('dl');
+    var tmp = -1;
+    var open = false;
+    for(var i=0; i < h1.length; i++){
+        h1[i].index = i;            //得到索引号
+        h1[i].onclick = function(){
+            for(var i=0; i<h1.length; i++){
+                dl[i].style.display = 'none';
+            }
+            if(tmp == this.index && open){
+                dl[this.index].style.display = 'none';
+                open = false;
+            } else {
+                dl[this.index].style.display = 'block';
+                open = true;
+            }
+            tmp = this.index;
+        }
+    }
+
+</script>
 </body>
 </html>
